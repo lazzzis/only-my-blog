@@ -10,7 +10,8 @@
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
     "deploy": "node dist/deploy.js",
-    "gen": "node generate/app.js"
+    "gen": "node generate/app.js",
+    "server": "http-server dist/"
   },
   "dependencies": {
     "feed": "^1.1.0",
@@ -55,6 +56,7 @@
     "friendly-errors-webpack-plugin": "^1.1.3",
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.3",
+    "http-server": "^0.10.0",
     "node-sass": "^4.5.3",
     "nprogress": "^0.2.0",
     "opn": "^4.0.2",
