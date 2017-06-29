@@ -8,7 +8,6 @@
           </br>&emsp;&emsp;-- Irving Berlin
         </blockquote>
         <img src="https://as.bitinn.net/upload/cj2l8o36f00ofbo5nj7spml66.1200.jpg" alt="">
-        <p class="caption">Pixiv ID 48134921</p>
       </div>
     </div>
   </only-container>
