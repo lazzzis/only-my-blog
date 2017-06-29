@@ -10,6 +10,7 @@ generate/source/unreleased
 generate/source/_posts/*
 !generate/source/404.md
 !generate/source/_posts/test.md
+!dist/deploy.js
 
 #Node
 
