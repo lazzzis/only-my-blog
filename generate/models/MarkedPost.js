@@ -30,7 +30,7 @@ class MarkedPost extends Post {
     }))
   }
 
-  url(baseUrl) {
+  url (baseUrl) {
     return Url.resolve(baseUrl, this.slug)
   }
 

@@ -1,4 +1,5 @@
 const yaml = require('js-yaml')
+const parser = require('hexo-front-matter')
 const fsp = require('fs-promise')
 
 class Post {
@@ -24,40 +25,23 @@ class Post {
   }
 
   _parse () {
-    let lines = this.fileContent.split('\n')
-    let contentStart = 0
-    for (let i = 0; i < lines.length; i += 1) {
-      let line = lines[i].trim()
-      if (line && !/[^-]/.test(line)) { // the divide line
-        contentStart = i
-        break
-      }
-    }
+    const parsed = parser.split(this.fileContent)
+    const tryMeta = yaml.safeLoad(parsed.data)
+    const meta = tryMeta === 'undefined' ? {} : tryMeta
 
-    let content = lines.slice(contentStart + 1).join('\n')
-
-    let meta
-    if (contentStart === 0) {
-      meta = {}
-    } else {
-      let metaLines = lines.slice(0, contentStart)
-      // if loading fails, meta will be {}
-      meta = yaml.safeLoad(metaLines.join('\n')) || {}
-    }
-
-    // ensure they are arraies, rather than a single tag (string)
-    if (meta.categories && typeof meta.categories === 'string') {
-      meta.categories = [meta.categories]
-    } else if (!meta.categories) { // no categories detected
-      meta.categories = []
-    }
-
-    if (meta.tags && typeof meta.tags === 'string') {
-      meta.tags = [meta.tags]
-    } else if (!meta.tags) { // no categories detected
+    if (!meta.tags) {
       meta.tags = []
+    } else if (typeof meta.tags === 'string') { // single element
+      meta.tags = [meta.tags]
     }
-    return [meta, content]
+
+    if (!meta.categories) {
+      meta.categories = []
+    } else if (typeof meta.categories === 'string') {
+      meta.categories = [meta.categories]
+    }
+
+    return [ meta, parsed.content ] // meta, content
   }
 
   lean (showContent = true) {
