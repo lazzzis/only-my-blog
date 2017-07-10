@@ -24,7 +24,7 @@ renderer.image = function (href, title, text) {
 }
 
 renderer.link = function (href, title, text) {
-  return `<a href=${href} target="_blank">${text}</a>`
+  return `<a href="${href}" target="_blank">${text}</a>`
 }
 
 renderer.codespan = function (code) {

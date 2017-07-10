@@ -15,7 +15,7 @@ This mainly contains two parts:
 
 ## Frontend
 
-The development is based on vue workflow, which can build a SPA(single page appliacation).
+The development is based on vue workflow, which can build a SPA(single page application).
 
 ## Generator (Backend)
 
