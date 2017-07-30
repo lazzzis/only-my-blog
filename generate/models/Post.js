@@ -1,6 +1,6 @@
 const yaml = require('js-yaml')
 const parser = require('hexo-front-matter')
-const fsp = require('fs-promise')
+const fsp = require('fs-extra')
 
 class Post {
   constructor (fileContent = '') {
