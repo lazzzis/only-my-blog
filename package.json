@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js,.vue src",
     "deploy": "node dist/deploy.js",
     "gen": "node generate/app.js",
-    "server": "http-server dist/"
+    "server": "http-server dist/ --cors -p 5000"
   },
   "dependencies": {
     "feed": "^1.1.0",
