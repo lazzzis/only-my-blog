@@ -1,7 +1,7 @@
 const Post = require('./Post')
 const Render = require('./Render')
 const slugify = require('../utils').slugify
-const fsp = require('fs-promise')
+const fsp = require('fs-extra')
 const path = require('path')
 const Url = require('url')
 

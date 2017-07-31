@@ -1,4 +1,4 @@
-const fsp = require('fs-promise')
+const fsp = require('fs-extra')
 const slugify = require('../utils').slugify
 
 class Tag {
